@@ -47,10 +47,11 @@ def get_lunch():
             meal_type = element.find('druh_popis').text
             meal_name = element.find('nazev').text
             if meal_name and meal_type is not None:
-                meals.append(f"{date.strftime('%A')}: {meal_type} - {meal_name}")
-
+                meals.append(f"# Obědy od {date.strftime('%d.%m.%Y')} \n ")
+                meals.append(f"## {date.strftime('%A')} \n ***{meal_type}*** - {meal_name} \n")
+                    
     s.close()
     # return meals
-    return '\n '.join(meals)
+    return "".join(meals)
 
-print(get_lunch())
+# print(get_lunch())
